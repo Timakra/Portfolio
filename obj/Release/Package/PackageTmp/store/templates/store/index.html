@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block header %}
+{% include "store/header.html" %}
+{% endblock header %}
+
+{% block content %}
+
+
+<div class="wrapper">
+{% include "store/sidebar.html" %}
+</div>
+{% block storecontent %}
+{% endblock storecontent %}
+
+{% endblock content %}

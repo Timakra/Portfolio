@@ -1,0 +1,30 @@
+﻿{% extends 'store/storeIndex.html' %}
+
+
+{% block storecontent %}
+<div class="container">
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <table class="table table-hover">
+                <tr>
+                    <td><b>name</b></td>
+                    <td><b>sku</b></td>
+                    <td><b>price</b></td>
+                    <td><b>quantity</b></td>
+                    <td><b>totalprice</b></td>                  
+                </tr>
+                <tr>
+                {% for item in cart %}
+                    <td>{{ item.item.name }}</td>
+                    <td>{{ item.item.sku }}</td>
+                    <td>{{ item.item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.totalprice }}</td>
+                    <td></td>
+                {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

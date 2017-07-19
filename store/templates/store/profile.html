@@ -1,0 +1,12 @@
+﻿{% extends "store/storeIndex.html" %}
+
+{% block storecontent %}
+<a class="btn btn-danger" href="{% url 'store:logout' %}?next={% url 'store:login' %}">Log-Out</a>
+    <ul>
+        <li>    {{user.username}}</li>
+        <li>    {{user.email}}</li>
+        <li>    {{user.first_name}}</li>
+        <li>    {{user.last_name}}</li>
+    </ul>
+   
+{% endblock %}

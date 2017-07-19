@@ -1,0 +1,67 @@
+﻿
+<div id="header" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row "> 
+
+
+
+            {% if user.is_authenticated %}
+                <div class="col-xs-8  hidden-sm hidden-xs">
+                    <a href="/store" class="btn">
+                    <h3>My Store</h3>
+                    </a>
+                    </div>
+                <div class="col-xs-5 hidden-md hidden-lg">
+                    <a href="/store" class="btn">
+                    <h4>My Store</h4>
+                    </a>
+                    </div>
+                <div class="col-xs-2 text-right hidden-sm hidden-xs" style="color:whitesmoke !important">
+                    <a class="shopcart" href="{% url 'store:cart' %}" >
+                    <h3><i class="fa fa-shopping-basket btn"></i></h3>
+                    </a>
+                    </div>
+                    <div class="col-xs-2 text-right hidden-md hidden-lg" style="color:whitesmoke !important">
+                    <a class="shopcart" href="{% url 'store:cart' %}">
+                    <h4><i class="fa fa-shopping-basket btn"></i></h4>
+                    </a>
+                </div>
+                <div class="col-xs-2  text-right hidden-sm hidden-xs">
+                    <a href="{% url 'store:user' %}" class="btn"><!--add user profile url-->
+                    <h3>{{ user.username }}</h3><!--change to user name-->
+                    </a>
+                    </div>
+                <div class="col-xs-3 text-right hidden-md hidden-lg">
+                    <a href="{% url 'store:user' %}" class="btn"><!--add user profile url-->
+                    <h4>{{ user.username }}</h4><!--change to user name-->
+                    </a>
+                </div>
+            {% else %}
+                <div class="col-xs-7  hidden-sm hidden-xs">
+                    <a href="/store" class="btn">
+                    <h3>My Store</h3>
+                    </a>
+                    </div>
+                <div class="col-xs-7 hidden-md hidden-lg">
+                    <a href="/store" class="btn">
+                    <h4>My Store</h4>
+                    </a>
+                    </div>
+                 <div class="col-xs-5  text-right hidden-sm hidden-xs">
+                    <a href="{% url 'store:registerform' %}" class="btn"><!--add user profile url-->
+                    <h3>Login/Register</h3><!--change to user name-->
+                    </a>
+                 </div>
+                <div class="col-xs-5 text-right hidden-md hidden-lg">
+                    <a href="{% url 'store:registerform' %}" class="btn"><!--add user profile url-->
+                    <h4>Login/Register</h4><!--change to user name-->
+                    </a>
+                </div>
+            {% endif %}
+
+
+        
+        </div>
+    </div>
+</div>
+

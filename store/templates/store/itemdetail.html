@@ -1,0 +1,32 @@
+﻿{% extends "store/index.html" %}
+
+{% load staticfiles %}
+
+{% block storecontent %}
+<div id="detailitem" class="container">
+    <div class="row text-center">
+        <div class="col-12-xs">
+            <h1>{{ item.name }}</h1>
+            <img class="img-thumbnail" src="{% static item.image %}" />
+            <h3>{{ item.shortdesc }}</h3>
+            <hr />
+            
+        </div>
+      </div><!--row-->
+            <div class="row">
+                <div class="col-xs-12 col-md-8"><!--discription-->
+                    <h2>{{ item.longdesc|safe }}</h2>
+                </div><!--discription-->
+                <div class="col-xs-12 col-md-4"><!--specs-->
+                    <ul style="list-style-type:none">
+                    {% for spec in specs %}
+                            <h2>{{ spec.title }}</h2>
+                        <li>{{ spec.description|safe }}</li>
+                    {% endfor %}
+                    </ul>
+                </div><!--specs-->
+            </div><!-- descriptions specs row-->
+      
+</div><!-- .container -->
+
+{% endblock %}

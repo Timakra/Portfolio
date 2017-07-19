@@ -1,0 +1,47 @@
+﻿
+<div id="header" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row text-center"> 
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                
+                   <div class="row"> 
+                        <div class="col-xs-12 hidden-sm hidden-xs">
+                        
+                            <h1><b>Timur Krasner</b></h1>
+                        
+                       </div>
+                       <div class="col-xs-12 hidden-md hidden-lg">
+                           <h3><b>Timur Krasner</b></h3>
+                       </div>
+                    </div>
+                
+                </div>
+         </div>
+    </div>
+</div>
+
+
+
+<div id="header-bottom" class="container navbar navbar-default">
+
+<div class="btn-group btn-group-justified">
+  <a href="#about" class="btn btn-default scroll-btn"">About</a>
+  <a href="#projects" class="btn btn-default scroll-btn">Projects</a>
+  <a href="#contact" class="btn btn-default scroll-btn">Contact</a>
+</div>
+</div>
+<script>
+
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 50) {
+            $('#header-bottom').addClass(' navbar-fixed-top');
+            $('#header-bottom').css('margin-top','0px');
+        } else {
+            $('#header-bottom').removeClass(' navbar-fixed-top');
+            $('#header-bottom').css('margin-top','30px');
+        }
+    });
+
+</script>
+

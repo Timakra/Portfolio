@@ -1,0 +1,60 @@
+﻿{% extends "store/index.html" %}
+
+{% load staticfiles %}
+
+{% block storecontent %}
+<div id="item-gallery" class="container">
+   <div class="row">
+       <div class="col-xs-12 text-center">
+            <h1>{{ category }}</h1>
+       </div>
+    {% for item in storeItems %}
+   <div id="margin" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div id="small-item" class="col-xs-12 well text-center"> 
+      
+            <a href="{{ item.sku }}">
+                <h2>{{item.name}}</h2>
+                <h5>{{ item.shortdesc }}</h5>
+            </a>
+            <a href="{% url 'store:itemdetails' skunum=item.sku %}"><img class="img-thumbnail" src="{% static item.image %}" /></a>
+            <div class="row">
+                <div class="col-xs-6">
+                    <h5 id="price-tag" class="well"><p>price : </p><b><span id="price">{{ item.price }}$</span></b></h5>
+                </div>
+                <div class="col-xs-6  ">
+                    <form id="{{item.sku}}">{% csrf_token %}<h5 id="add" class="well addtocart {{item.sku}}"><button id="{{ item.sku }}" value="{{ item.sku }}" class="btn well" type="submit"><b>to </b><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></button></h5></form>
+                </div>
+           </div>
+        </div>
+    </div>
+       <script>
+           {% if user.is_authenticated %}
+               $('#{{ item.sku }}').on('click',function(e){
+                        e.preventDefault();
+                        $(".shopcart").append("{{ item.name }}")
+                        $.ajax({
+                              type:"POST",
+                              url:"{% url 'store:tocart' %}",
+                              data :{
+                                    sku : '{{ item.sku }}' ,
+                              },
+                             sucess:function(){
+                                
+                             }
+                            
+                    });
+               });
+           {% else %}
+           $("#{{ item.sku }}").click(function(){
+               
+           });
+
+           {% endif %}
+
+       </script>
+
+    {% endfor %}
+       </div>
+
+</div>
+{% endblock %}

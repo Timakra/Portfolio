@@ -1,0 +1,35 @@
+﻿{% extends "store/index.html" %}
+
+
+{% block storecontent %}
+<div class="container login-registration">
+    <div class="row text-center">
+
+        <div class="col-xs-12">
+            <h1>Login</h1>
+              <form method="post">
+                  {% csrf_token %}
+                  <table align="center">
+                      {% for field in form %}
+                      <tr>
+                          
+                          <td> {{ field.label }} </td>
+                          <td> {{ field }} </td>
+                      </tr>
+                       <tr>
+                          <td class="text-danger"> <b>{{ field.errors }}</b> </td>
+                      </tr>
+                      {% endfor %}
+                  </table>
+                   </div>
+                  <div class="col-xs-12">
+                  <button class="btn btn-default" type="submit" name="next" value="{% url 'store:home' %}">Submit</button>
+                    </div>
+                   <div class="col-xs-12">
+                   <h4>Don't have an account? <a style="color:lawngreen" href="{% url 'store:registerform' %}">sign up</a></h4>
+                   </div>
+             </form>
+       
+    </div>
+</div>
+{% endblock %}

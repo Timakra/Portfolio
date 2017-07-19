@@ -1,0 +1,81 @@
+﻿
+<div id="header" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row text-center"> 
+
+
+            <div class="col-xs-5 text-center hidden-sm hidden-xs">
+                <a href="/store" class="btn">
+                <h3>My digital Store</h3>
+                </a>
+                </div>
+            <div class="col-xs-5 text-center hidden-md hidden-lg">
+                <a href="/store" class="btn">
+                <h4>My digital Store</h4>
+                </a>
+                </div>
+                <div class="col-xs-1 text-center hidden-sm hidden-xs" style="color:whitesmoke !important">
+                <a href="{% url 'store:cart' %}" >
+                <h3><i class="fa fa-shopping-basket btn"></i></h3>
+                </a>
+                </div>
+                <div class="col-xs-1 text-center hidden-md hidden-lg" style="color:whitesmoke !important">
+                <a href="{% url 'store:cart' %}">
+                <h4><i class="fa fa-shopping-basket btn"></i></h4>
+                </a>
+                </div>
+
+            {% if user.is_authenticated %}
+                <div class="col-xs-5  text-center hidden-sm hidden-xs">
+                    <a href="/user" class="btn"><!--add user profile url-->
+                    <h3>{{ user.username }}</h3><!--change to user name-->
+                    </a>
+                    </div>
+                <div class="col-xs-5 text-center hidden-md hidden-lg">
+                    <a href="/user" class="btn"><!--add user profile url-->
+                    <h4>{{ user.username }}</h4><!--change to user name-->
+                    </a>
+                </div>
+            {% else %}
+                 <div class="col-xs-5  text-center hidden-sm hidden-xs">
+                    <a href="{% url 'store:registerform' %}" class="btn"><!--add user profile url-->
+                    <h3>Login/Register</h3><!--change to user name-->
+                    </a>
+                 </div>
+                <div class="col-xs-5 text-center hidden-md hidden-lg">
+                    <a href="{% url 'store:registerform' %}" class="btn"><!--add user profile url-->
+                    <h4>Login/Register</h4><!--change to user name-->
+                    </a>
+                </div>
+            {% endif %}
+
+
+        
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div id="header-bottom" class="container navbar navbar-default">
+
+<div class="btn-group btn-group-justified">
+  <a href="#about" class="btn btn-danger">About</a>
+  <a href="#projects" class="btn btn-danger">Projects</a>
+  <a href="#contact" class="btn btn-danger">Contact</a>
+</div>
+</div>
+<script>
+
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 50) {
+            $('#header-bottom').addClass(' navbar-fixed-top');
+            $('#header-bottom').css('margin-top','0px');
+        } else {
+            $('#header-bottom').removeClass(' navbar-fixed-top');
+            $('#header-bottom').css('margin-top','30px');
+        }
+    });
+
+</script>
+    -->
