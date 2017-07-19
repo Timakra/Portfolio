@@ -79,7 +79,6 @@
     <Content Include="templates\header.html" />
     <Content Include="templates\portfolio.html" />
     <Content Include="templates\sidebar.html" />
-    <None Include="TimurKrasner-django - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Media\Images\" />
