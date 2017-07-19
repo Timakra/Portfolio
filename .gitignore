@@ -9,7 +9,8 @@ bin/
 include/
 pip-selfcheck.json
 
-settings/local.py
+Mysite/settings/local.py
+local.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
